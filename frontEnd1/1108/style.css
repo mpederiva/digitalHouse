@@ -1,0 +1,39 @@
+body {
+  background-image: url('img/banner.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;4font-family: Arial, Helvetica, sans-serif; 
+  text-align: center;
+}
+
+h1{
+ color: #000000;
+ font-family: Georgia, 'Times New Roman', Times, serif; 
+ font-size: 40px;
+}
+
+h2{
+  color:#ffffff;
+  font-size: 20px;
+}
+
+.box {
+  background-color: #f04e03;
+  border: solid 5px #dabcab;
+  width: 120px;
+  height: 120px;
+  box-sizing: border-box;
+}
+
+#mae {
+  border: solid 10px #ffffff;
+  padding: 30px;
+  position: relative;
+}
+
+.caixa {
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+  z-index: 1;
+}
