@@ -8,6 +8,6 @@ Here you will find some class projects that were developed during the [Certified
 - Learning Agility
 
 ## 2nd Quarter
-- Front End I
+- Front End I [checkpoint 01](https://github.com/mpederiva/digitalHouse/tree/main/frontEnd1/1109) and [checkpoint 02]
 - Imperative Programming
 - Agile Methodologies
