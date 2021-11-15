@@ -5,20 +5,70 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Digital House</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <p>Here you will find some class projects that were developed during the <a href="https://www.digitalhouse.com/br/landing/certified-tech-developer?utm_source=google&utm_medium=paidsearch&utm_campaign=lead&utm_term=CTD&utm_content=degree-ctd-degree-pagectd-adresponsive-lead-kwcategory-ctd-all-none-all-other-text-infoproduct-none-1830-all-br-search-none&gclid=Cj0KCQjw8eOLBhC1ARIsAOzx5cFpGMcPlCe8dqF6mhTJvvchKPYHOcQt2egbHLjlRX8d6ok5aXafEwIaAm39EALw_wcB">Certified Tech Devoloper</a> course.</p>
-        <ul>
-            <li>
-                <h3>1st Quarter</h3>
-                    <li>Database</li>
-                    <li>Introduction to Computer Science</li>
-                    <li>Learning Agility</li>
-                <h3>2nd Quarter</h3>
-                    <li>Front End I: <a href="./frontEnd1/1109/index.html">Checkpoint 01</a></li>
-                    <li>Agile Methodologies</li>
-                    <li>Imperative Programming</li>
-            </li>
-        </ul>
+        <header>
+            <ul>
+                <li>
+                    <a target="_blank" href="https://github.com/mpederiva">github</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.linkedin.com/in/martapederiva/">linkedin</a>
+                </li>
+            </ul>
+            <div>
+                <img src="img/mp.png" alt="logo Marta Pederiva">
+            </div>
+        </header>
+        <main>
+            <section class="container">
+                <div class="nome">
+                    <h1>Marta Pederiva</h1>
+                    <p>Here you will find some class projects that were developed during the <a href="https://www.digitalhouse.com/br/landing/certified-tech-developer?utm_source=google&utm_medium=paidsearch&utm_campaign=lead&utm_term=CTD&utm_content=degree-ctd-degree-pagectd-adresponsive-lead-kwcategory-ctd-all-none-all-other-text-infoproduct-none-1830-all-br-search-none&gclid=Cj0KCQjw8eOLBhC1ARIsAOzx5cFpGMcPlCe8dqF6mhTJvvchKPYHOcQt2egbHLjlRX8d6ok5aXafEwIaAm39EALw_wcB">Certified Tech Devoloper</a> course.</p>
+                </div>
+                <div id="quarters"> <!--  fundo cinza -->
+                    <h2 class="quarter">1st Quarter</h2>
+                        <div onclick="displayDatabase()" class="arrow">    
+                            <p ><i id="animation" class="fas fa-angle-down"></i>Database</p>
+                        </div>
+                        <div style="display: none" id="Database">
+                            <p class="escondido">Checkpoint 1 and Checkpoint 2</p>
+                        </div>
+                        <div onclick="displayIntroComputerScience()" class="arrow">               
+                            <p ><i id="animatio" class="fas fa-angle-down"></i>Introduction to Computer Science</p>
+                        </div>
+                        <div style="display: none" id="introComputerScience">
+                            <p class="escondido">Checkpoint 1 and Checkpoint 2</p>
+                        </div>
+                        <div onclick="displayLearningAgility()" class="arrow">
+                            <p><i id="animati" class="fas fa-angle-down"></i>Learning Agility</p>
+                        </div>
+                        <div style="display: none" id="learningAgility">
+                            <p class="escondido">Checkpoint 1 and Checkpoint 2</p>
+                        </div>
+                    <h2 class="quarter">2nd Quarter</h2>
+                        <div onclick="displayFrontEndI()" class="arrow">             
+                            <p><i id="animat" class="fas fa-angle-down"></i>Front End I</p>
+                        </div>
+                        <div style="display: none" id="frontEndI">
+                            <p class="escondido"><a href="./frontEnd1/1109/index.html">Checkpoint 1</a> and Checkpoint 2</p>
+                        </div>
+                        <div onclick="displayAgileMethodologies()" class="arrow">
+                            <p><i id="anima" class="fas fa-angle-down"></i>Agile Methodologies</p>
+                        </div>
+                        <div style="display: none" id="agileMethodologies">
+                            <p class="escondido">Checkpoint 1 and Checkpoint 2</p>
+                        </div>
+                        <div onclick="displayImperativeProgramming()" class="arrow">
+                            <p><i id="anim" class="fas fa-angle-down"></i>Imperative Programming</p>
+                        </div>
+                        <div style="display: none" id="imperativeProgramming">
+                            <p class="escondido">Checkpoint 1 and Checkpoint 2</p>
+                        </div>
+                </div>              
+            </section>
+        </main>
     </body>
+    <script src="main.js"></script>
 </html>
