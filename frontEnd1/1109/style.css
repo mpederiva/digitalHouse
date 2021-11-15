@@ -1,0 +1,97 @@
+* {
+    color: #00000;
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    background-color: #215584;
+}
+
+.bandeira{
+    width: 20%;
+    align-items: center;
+}
+
+#titulo {
+    /* COR DA FONTE */
+    color: #00a859;
+    /* ALINHAMENTO CENTRALIZADO DO TEXTO */
+    text-align: center;
+    /* FAMÍLIA TIPOGRÁFICA */
+    font-family: 'Lobster', cursive;
+    /* TAMANHO DA FONTE */
+    font-size: 32px;
+    /* ESTILO DA FONTE */
+    font-style: oblique;
+    /* ESPESSURA DA FONTE */
+    font-weight: 200;
+    /* COR DE FUNDO DO TÍTULO */
+    background-color: #215584;
+    /* ESPAÇAMENTO */
+    padding: 10px;
+}
+
+#resumo {
+    /* TAMANHO */
+    padding: 20px;
+    /* ALINHAMENTO DO TEXTO */
+    text-align: center;
+    /* FAMÍLIA TIPOGRÁFICA */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* TAMANHO DA FONTE */
+    font-size: 16px;
+    /* ESTILO DA FONTE */
+    font-style: oblique;
+}
+
+ul {
+    /* ALINHAMENTO */
+    text-align: center;
+    /* FAMILIA TIPOGRÁFICA */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* TAMANHO DA FONTE */
+    font-size: 16px;
+    /* ESTILO DA FONTE */
+    font-style: oblique;
+    /* MARGEM */
+    margin: 20px 0px;
+}
+
+#corpo {
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#principal {
+    text-align: center;
+}
+
+.subtitulo {
+        /* COR DA FONTE */
+        color: white;
+        /* ALINHAMENTO CENTRALIZADO DO TEXTO */
+        text-align: center;
+        /* FAMÍLIA TIPOGRÁFICA */
+        font-family: 'Lobster', cursive;
+        /* TAMANHO DA FONTE */
+        font-size: 32px;
+        /* ESTILO DA FONTE */
+        font-style: oblique;
+        /* ESPESSURA DA FONTE */
+        font-weight: 200;
+        /* ESPAÇAMENTO */
+        padding: 10px;
+}
+#rodape {
+    text-align: center;
+    padding: 20px;
+}
+
+.icones {
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+}
