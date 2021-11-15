@@ -1,7 +1,7 @@
 function displayDatabase(){
     var arrow = document.getElementById('animation');
     arrow.classList.toggle('rotate');
-    var display = document.getElementById('Database');
+    var display = document.getElementById('database');
     display.classList.toggle('active');
 }
 
@@ -34,7 +34,7 @@ function displayAgileMethodologies(){
 }
 
 function displayImperativeProgramming(){
-    var arrow = document.getElementById('ani');
+    var arrow = document.getElementById('anim');
     arrow.classList.toggle('rotate');
     var display = document.getElementById('imperativeProgramming');
     display.classList.toggle('active');
