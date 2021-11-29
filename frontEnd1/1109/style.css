@@ -7,12 +7,14 @@
     margin: 0;
     padding: 0;
 }
+
 #cabecalho{
     text-align: center;
 }
 
 #cabecalho ul{
     list-style: none;
+    font-family: 'Montagu Slab', serif;
 }
 
 #cabecalho a{
@@ -90,20 +92,20 @@ ul {
 }
 
 .subtitulo {
-        /* COR DA FONTE */
-        color: white;
-        /* ALINHAMENTO CENTRALIZADO DO TEXTO */
-        text-align: center;
-        /* FAMÍLIA TIPOGRÁFICA */
-        font-family: 'Montagu Slab', serif;
-        /* TAMANHO DA FONTE */
-        font-size: 32px;
-        /* ESTILO DA FONTE */
-        font-style: oblique;
-        /* ESPESSURA DA FONTE */
-        font-weight: 200;
-        /* ESPAÇAMENTO */
-        padding: 10px;
+    /* COR DA FONTE */
+    color: white;
+    /* ALINHAMENTO CENTRALIZADO DO TEXTO */
+    text-align: center;
+    /* FAMÍLIA TIPOGRÁFICA */
+    font-family: 'Montagu Slab', serif;
+    /* TAMANHO DA FONTE */
+    font-size: 32px;
+    /* ESTILO DA FONTE */
+    font-style: oblique;
+    /* ESPESSURA DA FONTE */
+    font-weight: 200;
+    /* ESPAÇAMENTO */
+    padding: 10px;
 }
 #rodape {
     text-align: center;
