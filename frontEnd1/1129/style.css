@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    color: #00000;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montagu Slab', serif;
+}
+
+#cabecalho{
+    text-align: center;
+}
+
+#cabecalho ul{
+    list-style: none;
+}
+
+#cabecalho a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#cabecalho a:hover {
+    color: #215584;
+    transition: 300ms;
+}
+
+#cabecalho li{
+    padding: 5px;
+}
+
+#titulo {
+    color: #00a859;
+    text-align: center;
+    font-size: 32px;
+    font-style: oblique;
+    font-weight: 200;
+    background-color: #215584;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 25px;
+    margin-bottom: 60px;
+    margin-top: 30px;
+    background-color: #2156846e;
+}
+
+header ul {
+    display: flex;
+}
+
+#corpo {
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#principal {
+    padding: 20px;
+    text-align: center;
+    font-family: 'Montagu Slab', serif;
+    font-size: 18px;
+    text-align: center;
+    color:#ffffff;
+}
+
+form {
+    border-radius: 10px;
+    background-color: #2156846e;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.formTitle {
+    font-size: 22px;
+    margin: 0 0 20px 0; 
+}
+
+form p {
+    font-size: 18px;
+    margin: 0;
+    padding-top: 10px;
+}
+
+input {
+    margin: 10px 5px;
+    border-radius: 5px;
+    border: 0;
+    padding: 5px;
+    transition-property:all ;
+    transition-duration: 0.5s;
+}
+
+input:hover {
+    transform: scale(1.3);
+}
+
+#nome {
+    width: 400px;
+}
+
+#email {
+    width: 400px;
+}
+
+#visita {
+    background-color: white;
+    margin: 10px 5px 25px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#visita:hover {
+transform: scale(1.3);
+}
+
+.checks {
+    font-size: 14px;
+}
+
+.required {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #215584;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 30px;
+    transition-property:all ;
+    transition-duration: 1s;
+}
+
+.buttons-div {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #215584;
+}
+
+#rodape {
+    text-align: center;
+    padding: 20px;
+}
+
+.icones {
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+}

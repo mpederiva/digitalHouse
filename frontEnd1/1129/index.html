@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Formulário de Cadastro</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/bandeira.png">
+</head>
+
+<body id="corpo">
+    <header id="cabecalho">
+        <ul>
+            <li>
+                <a href="./frontEnd1/1109/index.html">Informações</a>
+            </li>
+            <li>
+                <a href="./frontEnd1/1129/index.html">Cadastro</a>
+            </li>
+        </ul>
+        <div id="titulo">
+            <h1 id="titulo">Belém do Pará</h1>
+        </div>        
+    </header>
+
+    <main id="principal">
+        <form class="cadastrar" id="form" method="POST">
+            <p class="formTitle"> Queremos saber mais sobre você! </p>
+            <div>
+                <label for="nome">Nome Completo:*</label>
+                <input class="hover" min="100chars" type="text" id="nome" name="nome" placeholder="Digite o seu nome">  
+            </div>
+            <div>
+                <label for="email">E-mail:*</label>
+                <input class="hover" type="email" id="email" name="email" placeholder="email@gmail.com">  
+            </div>
+            <div>
+                <label for="telefone"> Telefone:*</label>
+                <input type="text" name ="telefone" id= "telefone"  placeholder="Insira o telefone">
+            </div>
+            <div>
+                <label for="dataNascimento"> Data de Nascimento:* </label>
+                <input type="date" name ="dataNascimento" id= "dataNascimento" placeholder="Insira a data de nascimento">
+            </div>
+            <div>
+                <p> É maior de idade?* </p>
+                <input type="radio" name ="maiorIdade" id= "maiorsim" required checked> <label for="maiorsim"> Sim </label>
+                <input type="radio" name ="maiorIdade" id= "maiornao" required> <label for="maiornao"> Não </label>
+            </div>
+                
+            <div class="checkbox">
+                <p> Quais locais tem interesse em conhecer? </p>
+                <div>
+                    <input type="checkbox" name="locais" id="locDocas"><label for="locDocas">Estação das Docas</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locVerOPeso"><label for="locVerOPeso">Mercado Ver-o-Peso</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locMangalGarcas"><label for="locMangalGarcas">Mangal das Garças</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locFelizLuzitania"><label for="locFelizLuzitania">Complexo Feliz Luzitânia</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locSiqueiraCampos"><label for="locSiqueiraCampos">Praça do Relógio (Siqueira Campos)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locTheatroPaz"><label for="locTheatoPaz">Praça da República e Theatro da Paz</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locRodriguesAlves"><label for="locRodriguesAlves">Bosque Rodrigues Alves</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locBasilicaNazare"><label for="locBasilicaNazare">Basílica de Nazaré</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locMuseuGoeldi"><label for="locMuseuGoeldi">Museu Paraense Emílio Goeldi</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locParqueResidencias"><label for="locParqueResidencia">Parque da Residência</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locUtinga"><label for="locUtinga">Parque Estadual do Utinga</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locSaoJoseLiberto"><label for="locSaoJoseLiberto">Espaço São José Liberto</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locVerORio"><label for="locVerORio">Complexo Turístico Ver-o-Rio</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locIcoaraci"><label for="locIcoaraci">Icoaraci</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locCombu"><label for="locCombu">Ilha do Combu</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="locais" id="locMosqueiro"><label for="locMosqueiro">Ilha do Mosqueiro</label>
+                </div>
+            </div>
+
+            <div>
+                <label for="visita"> 
+                    <p> Qual o motivo de sua visita?  </p> 
+                </label>
+                    <select name="visita" id="visita">
+                      <option value="0">Selecione uma opção</option>
+                      <option value="1">Turismo</option>
+                      <option value="2">Trabalho</option>
+                      <option value="3">Estudo</option>
+                      <option value="4">Outros</option>
+                    </select>
+            </div>
+
+            <div class="checks">
+                <input type="checkbox" name ="aceito" id="aceito" required> <label for="checkbox"> Li e aceito as condições.* </label>
+            </div>
+        
+            <div class="checks">
+                <input type="checkbox" name ="newsletter" id="newsletter" checked> <label for="checkbox"> Quero receber e-mails promocionais. </label> 
+            </div>
+
+            <div class="required">
+            * Respostas necessárias.
+            </div>
+                
+            <div class="buttons-div">
+                <button type="reset" id="limpar"> Limpar </button>
+                <button type="send" id="enviar"> Enviar </button> 
+            </div>
+        </form> 
+    </main>
+
+    <footer id="rodape">
+        <a href="https://www.instagram.com/prefeiturabelem/" target="_blank"><img src="img/instagram.png" class="icones"></a>
+        <a href="https://www.youtube.com/channel/UC9UQferY2-RpfvW3zA9tnyQ" target="_blank"><img src="img/youtube.png" class="icones"></a>
+    </footer>
+
+
+</body>
+</html>
