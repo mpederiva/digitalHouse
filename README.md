@@ -7,6 +7,6 @@ Here you will find some [class projects](https://mpederiva.github.io/digitalHous
 - Learning Agility: [checkpoint 01]() and [checkpoint 02]()
 
 ## 2nd Quarter
-- Front End I: [checkpoint 01](https://github.com/mpederiva/digitalHouse/tree/main/frontEnd1/1109) and [checkpoint 02]()
+- Front End I: [checkpoint 01](https://github.com/mpederiva/digitalHouse/tree/main/frontEnd1/1109) and [checkpoint 02](https://github.com/mpederiva/digitalHouse/tree/main/frontEnd1/1129)
 - Imperative Programming: [checkpoint 01]() and [checkpoint 02]()
 - Agile Methodologies: [checkpoint 01]() and [checkpoint 02]()
