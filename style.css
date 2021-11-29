@@ -1,44 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
 * {
-    color: #00000;
-    margin: 0;
+    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-#cabecalho{
-    text-align: center;
-}
-
-#cabecalho ul{
+ul{
     list-style: none;
-    font-family: 'Montagu Slab', serif;
 }
 
-#cabecalho a{
+a{
     text-decoration: none;
-    color: #ffffff;
+    color: #000000a6;
 }
 
-#cabecalho a:hover {
-    color: #00a859;
+a:hover {
+    color: #8860D0;
     transition: 300ms;
 }
 
-#cabecalho li{
+li{
     padding: 5px;
 }
 
-#titulo {
-    color: #ffffff;
-    text-align: center;
-    font-size: 32px;
-    font-style: oblique;
-    font-weight: 200;
-    border-radius: 20px;
-    padding: 10px;
+body {
+    background-color: #5AB9EA;
+    background-image: linear-gradient(90deg, #C1C8E4 0%, #5680E9 74%);
 }
 
 header {
@@ -46,73 +33,85 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 5px 25px;
+    box-shadow: 1px 1px 10px 1px #ffffff;
     margin-bottom: 60px;
     margin-top: 30px;
-    background-color: #2156846e;
 }
 
 header ul {
     display: flex;
 }
 
-#resumo {
-    /* TAMANHO */
-    padding: 20px;
-    /* ALINHAMENTO DO TEXTO */
-    text-align: center;
-    /* FAMÍLIA TIPOGRÁFICA */
-    font-family: 'Montagu Slab', serif;
-    /* TAMANHO DA FONTE */
-    font-size: 18px;
+#logo img{
+    height: 40px;
+    margin-right: 10px;
 }
 
-ul {
-    /* ALINHAMENTO */
+.container{
     text-align: center;
-    /* FAMILIA TIPOGRÁFICA */
-    font-family: 'Bebas Neue', cursive;
-    /* TAMANHO DA FONTE */
-    font-size: 16px;
-    /* ESTILO DA FONTE */
-    font-style: oblique;
-    /* MARGEM */
-    margin: 20px 0px;
+    max-width: 1100px;
+    margin: 120px auto 0 auto;
 }
 
-#corpo {
-    background-image: url("img/bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+.container .nome h1{
+    color: #ffffff;
+    font-family: 'Cookie', cursive;
+    font-size: 70px;
+    margin-bottom: 15px;
+    font-style: italic;
 }
 
-#principal {
-    text-align: center;
+.container .nome p{
+    color: #000000;
+    font-family: 'Roboto';
+    font-size: 20px;
 }
 
-.subtitulo {
-    /* COR DA FONTE */
-    color: white;
-    /* ALINHAMENTO CENTRALIZADO DO TEXTO */
-    text-align: center;
-    /* FAMÍLIA TIPOGRÁFICA */
-    font-family: 'Montagu Slab', serif;
-    /* TAMANHO DA FONTE */
-    font-size: 32px;
-    /* ESTILO DA FONTE */
-    font-style: oblique;
-    /* ESPESSURA DA FONTE */
-    font-weight: 200;
-    /* ESPAÇAMENTO */
-    padding: 10px;
-}
-#rodape {
-    text-align: center;
-    padding: 20px;
+#arrow {
+    font-size: 35px;
+    cursor: pointer;
+    animation: blink 1s steps(5,start) infinite;
 }
 
-.icones {
-    margin: 20px;
-    width: 70px;
-    height: 70px;
+@keyframes{
+    to{
+        visibility: hidden;
+    }
+}
+
+.active{
+    display: block !important;
+}
+
+.rotate{
+    transform: rotate(180deg);
+    transition: 300ms;
+}
+
+#animation{
+    transition: 300ms;
+}
+
+#database, #introComputerScience, #learningAgility, #frontEndI, #agileMethodologies, #imperativeProgramming p{
+    padding: 0 10px;
+    color: #000000;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+@media only screen and (max-width: 480px) {
+
+    .container .nome h1 {
+        font-size: 30px;
+    }
+
+    .container .nome p {
+        font-size: 15px;
+    }
+
+    .quarter p {
+        max-width: 80%;
+        text-align: justify;
+    }
 }
