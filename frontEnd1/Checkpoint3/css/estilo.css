@@ -1,0 +1,331 @@
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    font-family: "Roboto", sans-serif;
+    /* color: var(--cor-botoes); Exemplo de como chamar ela no css */
+}
+
+body{
+    width: 100vw; /* Pro conteudo ser mostrado em 100% da view port (largura da janela)  */
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+/* INÍCIO - Estilização da Section Cabeçalho */
+
+.cabecalho .navbar-container ul li {
+    padding: 0 20px;
+    transition: all 300ms ease;
+}
+
+.cabecalho .navbar .navbar-container ul li a:hover, a:active {
+	color: #a71db9;
+	cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.cabecalho .navbar-container ul li a, a:link, a:visited {
+    text-decoration: none;
+    color: rgb(228, 177, 10);
+}
+
+
+/* INÍCIO - Estilização de Elementos Únicos da Página Incial *
+    */
+.section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.5)), url(../img/background.jpg);
+    background-color: black;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgb(228, 177, 10);
+}
+
+.title-container h2{
+    margin: 20% auto 0;
+    border: solid rgb(249, 246, 246);
+    border-radius: 8px;
+    width: 60%;
+    text-align: center;
+    text-shadow: black 0 -1.5px;
+    padding: 11px 12px;
+}
+
+
+.section-content .artista {
+    position: relative;
+    display: flex;
+    margin: 10% auto;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    border: solid white;
+    z-index: 0;
+}
+
+.section-content .artista::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: 0.5s;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    z-index: -1;
+}
+
+.section-container .artista:hover::before {
+    filter: blur(3px);
+    filter: grayscale(20%);
+    filter: brightness(0.4);
+    transform: scale(1.2);
+}
+
+.section-content .artista span {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+.section-content .artista span:hover{
+    opacity: 100;
+}
+
+.section-content .artista:nth-child(1)::before {
+    background-image: url(../img/artists/band-member.jpg); 
+}
+
+.section-content .artista:nth-child(2)::before {
+    background-image: url(../img/artists/jasmine.jpg); 
+}
+
+.section-content .artista:nth-child(3)::before {
+    background-image: url(../img/artists/harry-shelton-Mcdb3FLUAJw-unsplash.jpg); 
+}
+
+.section-content .artista:nth-child(4)::before {
+    background-image: url(../img/artists/marius-gerome-photography-1Ys3LiqFYeQ-unsplash.jpg); 
+}
+
+.section-content .artista:nth-child(5)::before {
+    background-image: url(../img/artists/obafemi-moyosade-zndslHAXhAw-unsplash.jpg  ); 
+}
+
+.section-content .artista:nth-child(6)::before {
+    background-image: url(../img/artists/slim-emcee-cIq6fwWQLu4-unsplash.jpg  ); 
+}
+
+/* CSS ELementos Página Inicial Desktop */
+@media (min-width: 1120px) {
+    .section-container {
+        height: 100vh;
+    }
+
+    .title-container h2 {
+        margin: 8% auto 2%;
+    }
+
+    .section-content {
+        margin: 0 auto;
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section-content .artista {
+        margin: 30px;
+        max-width: 10vw;
+        max-height: 10vw;
+        min-width: 120px;
+        min-height: 120px;
+    }
+    
+    .section-content .artista span {
+        font-size: 1.5rem;
+    }
+}
+    /*
+* FIM - Página Incial */
+
+
+/* INÍCIO - Footer */
+.footer {
+    background: black;
+	color: white;
+    width: 100vw;
+    height: 160px;
+}
+
+.footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    align-content: center;
+    text-align: center;
+    padding: 12px 12px;
+}
+
+.footer .footer-content .copyright-text {
+    display: flex;
+    padding: 2px 2px;
+}
+
+.footer .footer-content .copyright-text {
+    display: flex;
+    padding: 2px 2px;
+}
+
+.footer .footer-content .logo {
+    display: flex;
+    margin: 0 auto;
+    padding: 2px;
+}
+
+.video {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+ }
+/*
+FIM - Footer */
+
+    /* CSS Desktop */
+    @media (min-width: 1120px) {
+        /* Cabeçalho > Barra de navegação */
+        .cabecalho .navbar {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+        }
+    
+        .cabecalho .navbar .navbar-container {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px 0;
+            margin: 0 auto;
+        }
+    
+        .cabecalho .navbar .navbar-container ul {
+            display: flex;
+            list-style: none;
+            font-weight: bold;
+        }
+    
+        .cabecalho .navbar-container ul li:nth-child(3) {
+            border-right: 1px solid white;
+        }
+
+        .conteudo-pg .conteudo-pg-container .artista-container {
+            width: 90%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: 100px 50px;
+            text-align: center;
+        }
+
+    }
+        /* CSS Celular */
+    @media (max-width: 1120px) {
+        .cabecalho .navbar .navbar-container ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            font-weight: bold;
+            align-items: center;
+            padding: 16px 16px;
+        }
+    
+        .cabecalho .navbar .navbar-container .logo-container {
+            padding: 16px 0 0;
+        }
+    
+        .cabecalho .navbar .navbar-container .logo-container .logo {
+            display: flex;
+            margin: 0 auto;
+        }
+    }
+
+    @media (min-width: 1120px) {
+
+    .cabecalho .parallax {
+        padding: 5% 0 0 0;
+    }
+
+    .cabecalho .parallax .sub-cabecalho {
+        border: solid white;
+        border-radius: 12px;
+        width: 60%;
+        margin: auto;/* 13.4% auto auto; */
+        text-align: center;
+        text-shadow: black 0 -1.5px;
+        padding: 11px 12px;
+    }
+
+    #events-container {
+        display: grid;
+        gap: 50px ;
+        column-gap: 10px;
+        padding-bottom: 90px;
+    }
+    
+    .conteudo-pg .conteudo-pg-container .dados-evento {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 33% 61%;
+        gap: 100px 50px;
+        text-align: center;
+    }
+    .conteudo-pg .conteudo-pg-container #events-container .detalhes-evento.a, .detalhes-evento.b, .detalhes-evento.c, .detalhes-evento.d {
+        border-radius: 12px;
+    }
+
+    .detalhes-evento.a > h2, .detalhes-evento.b > h2, .detalhes-evento.c > h2, .detalhes-evento.d > h2 {
+        padding: 28px 0 26px;
+    }
+    
+    #events-container .data-evento {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        color: white;
+        margin: 0 auto;
+        padding: 50px;
+        border-radius: 12px;
+    }
+}
