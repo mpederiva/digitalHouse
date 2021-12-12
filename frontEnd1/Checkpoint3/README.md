@@ -1,6 +1,5 @@
 # Certified Tech Developer - Digital House | Front End I | Checkpoint 03
-Website to present a performance analysis of the flag football team Virginia Hurricanes.
-https://mpederiva.github.io/Storm/
+Website to present the final Checkpoint
 
 ## Credits
 - **Cristiane Rodrigues da Silva** - Co-developer - [crodsil](https://github.com/crodsil)
