@@ -1,12 +1,12 @@
-#Certified Tech Developer - Digital House | Front End II | Checkpoint 01
+# Certified Tech Developer - Digital House | Front End II | Checkpoint 01
 Website to present our first Checkpoint
 
-##Credits
+## Credits
 Amanda Reis - Co-developer - amandaD-Reis
 Marta Pederiva - Co-developer - mpederiva
 Wallace de Jesus Costa Assis - wallaceadm
 
-##REQUISITOS GERAIS:
+## REQUISITOS GERAIS:
 O tema da aplicação é de sua preferência. Pode ser sobre carros, animes, cidades, etc.
 2. A aplicação deve ser responsiva.
 3. A aplicação consiste em um formulário que, ao ser preenchido, cria cards com as informações preenchidas.
