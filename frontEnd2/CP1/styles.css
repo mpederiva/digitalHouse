@@ -19,6 +19,16 @@ h1 {
   color: #f7e51e;
 }
 
+#enviar{
+  background-color: #f7e51e;
+  border: none;
+  color: #1f1b2a;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
