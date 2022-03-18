@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #b363e2;
+  background-color: #1f1b2a;
   background-image: url('http://spittoon.co.uk/wp-content/uploads/2018/10/coding.jpg');
   background-size: cover;
   background-position: center top;
@@ -14,9 +14,9 @@ body {
 
 h1 {
   padding: .5em 1em;
-  background-color: white;
-  border-bottom: 1px solid lightgrey;
-  color: grey;
+  background-color: #1f1b2a;
+  border-bottom: 1px solid #31ffac;
+  color: #f7e51e;
 }
 
 .container {
@@ -29,12 +29,13 @@ h1 {
 
 .item {
   width: 30em;
-  background-color: white;
+  background-color: #1f1b2a;
+  color: #f7e51e;
   box-sizing: border-box;
   padding: 1.5em;
   margin-bottom: 1em;
   border-radius: 5px;
-  border: 1px solid lightgray;
+  border: 1px solid #31ffac;
 }
 
 .item img {
@@ -101,7 +102,7 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #35dbe8;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -119,11 +120,11 @@ h1 {
 }
 
 input:checked + .slider {
-  background-color: rgb(19, 19, 19);
+  background-color: #1f1b2a;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px rgb(19, 19, 19);
+  box-shadow: 0 0 1px #1f1b2a;
 }
 
 input:checked + .slider:before {
