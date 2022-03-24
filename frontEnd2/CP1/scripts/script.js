@@ -23,7 +23,6 @@ function alteraTema() {
         itemsListAtualizada.forEach(item => {
             item.classList.add('items-dark');
             item.classList.add('items-text-dark');
-    
         });
 
     } else { //Caso seja false, ou seja, não está selecionado
