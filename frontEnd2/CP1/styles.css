@@ -19,7 +19,7 @@ nav a{
 
 body {
   background-color: #1f1b2a;
-  background-image: url('http://spittoon.co.uk/wp-content/uploads/2018/10/coding.jpg');
+  background-image: url("./imagens/bg1.jpg");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -82,7 +82,7 @@ h1 {
 /* A cor de fundo da página  */
 .body-dark{
   min-height: 854px;
-  background-image: url('https://tm.ibxk.com.br/2021/08/10/10181814794027.jpg?ims=1120x420');
+  background-image: url("./imagens/bg2.jpg");
   background-color: #000000;
   background-size: cover;
   background-position: center top;
