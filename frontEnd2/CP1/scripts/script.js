@@ -3,6 +3,7 @@ let toggleswitch = document.getElementById('toggleSwitch');
 let body = document.querySelector('body');
 let h1 = document.querySelector('h1');
 let itemsList = document.querySelectorAll('.item');
+let header = document.querySelector('header');
 
 /* Função que é chamada pelo onChanged ao clicar no ToggleSwitch */
 function alteraTema() {
@@ -16,6 +17,7 @@ function alteraTema() {
         /* Adicionando as classes (dark-mode) css nos elementos capturados */
         body.classList.add('body-dark');
         h1.classList.add('h1-dark');
+        header.classList.add('header-dark');
 
         //Percorrendo com o ForEach (Recomendado)
         itemsListAtualizada.forEach(item => {
@@ -28,6 +30,7 @@ function alteraTema() {
         /* Remove as classes adicionadas anteiormente, assim, a página volta para o "modo-claro" */
         body.classList.remove('body-dark');
         h1.classList.remove('h1-dark');
+        header.classList.remove('header-dark');
 
         //Percorre a lista de elementos, para fazer a remoção em cada um dos itens
         itemsListAtualizada.forEach(item => {
