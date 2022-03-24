@@ -5,7 +5,7 @@
 }
 
 header{
-	background-color: #1f1b2a;
+  background-color: #1f1b2a;
   margin-top: 0%;
   top: 0 fixed;
   display: grid;
@@ -80,7 +80,7 @@ h1 {
 /* ------------------------------ Estilos para o tema escuro (Dark-Mode) ----------------------------------------------- */
 
 .header-dark{
-	background-color: #0392df;
+  background-color: #0392df;
   margin-top: 0%;
   top: 0 fixed;
   display: grid;
