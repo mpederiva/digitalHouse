@@ -7,13 +7,13 @@ Website to present our first Checkpoint
 - Wallace de Jesus Costa Assis - wallaceadm
 
 ## REQUISITOS GERAIS:
-1. O tema da aplicaÃ§Ã£o Ã© de sua preferÃªncia. Pode ser sobre carros, animes, cidades, etc.
-2. A aplicaÃ§Ã£o deve ser responsiva.
-3. A aplicaÃ§Ã£o consiste em um formulÃ¡rio que, ao ser preenchido, cria cards com as informaÃ§Ãµes preenchidas.
-4. Sobre o formulÃ¡rio: 
-- O formulÃ¡rio deve ter pelo menos 4 campos: TÃ­tulo, DescriÃ§Ã£o e URL da imagem e um botÃ£o de submit.
-- ApÃ³s o preenchimento, ao clicar no botÃ£o de submit, as informaÃ§Ãµes devem ser adicionadas Ã  lista de cards na pÃ¡gina.
-âž” Dica: VocÃª pode acrescentar outros campos ao formulÃ¡rio para deixar a aplicaÃ§Ã£o mais completa.
+1. O tema da aplicação é de sua preferência. Pode ser sobre carros, animes, cidades, etc.
+2. A aplicação deve ser responsiva.
+3. A aplicação consiste em um formulário que, ao ser preenchido, cria cards com as informações preenchidas.
+4. Sobre o formulário: 
+- O formulário deve ter pelo menos 4 campos: Título, Descrição e URL da imagem e um botão de submit.
+- Após o preenchimento, ao clicar no botão de submit, as informações devem ser adicionadas à lista de cards na página.
+? Dica: Você pode acrescentar outros campos ao formulário para deixar a aplicação mais completa.
 5. Sobre os Cards:
-- Os cards devem ter uma imagem e constar todas as informaÃ§Ãµes previamente preenchidas no formulÃ¡rio. 
-- O comportamento se darÃ¡ de forma que as informaÃ§Ãµes preenchidas sejam exibidas na seÃ§Ã£o de cards.
+- Os cards devem ter uma imagem e constar todas as informações previamente preenchidas no formulário. 
+- O comportamento se dará de forma que as informações preenchidas sejam exibidas na seção de cards.

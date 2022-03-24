@@ -7,17 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./imagens/code.jpg" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <title>CheckPoint 1 - Amanda, Marta, Wallace </title>
 </head>
 
 <body class="dark">
+  <header class = "navbar-container">
+    <nav class="nav nav-pills flex-column flex-sm-row">
+      <a class="flex-sm-fill text-sm-center nav-link " href="https://github.com/AmandaD-Reis" target="_blank">Amanda</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="https://github.com/mpederiva"target="_blank"> Marta</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="https://github.com/wallaceadm"target="_blank">Wallace</a> 
+    </nav>
+  </header>
 
   <div class="container">
-    <h1>Mulheres na Programação</h1>
-
-    <!-- Exemplo de switch, retiado do W3Schools 
-      -> https://www.w3schools.com/howto/howto_css_switch.asp
-    -->
+    <h1  class="text-warning">Mulheres na Programação</h1>
     <label class="switch">
       <!-- OnChnaged -> Fica obervando 'mudanças' no comportamento do input -->
       <input id="toggleSwitch" type="checkbox" onchange="alteraTema()">
@@ -25,9 +29,9 @@
     </label>
 
   </div>
-
-  <div id="post" class="container">
+  <div class="container">
     <div class="item">
+      <form id="formulario">
       <label for="imagem"><p>Link com a foto da mulher a ser adicionada</p></label>
       <input type="url" name="imagem" id="imagem" required>
       <label for="nome"><h2>Nome da mulher a ser adicionada</h2></label>
@@ -36,7 +40,11 @@
       <input type="text" name="sobre" id="sobre" required>
       <p></p>
       <input type="submit" id="enviar" value="Enviar">
+    </form>
     </div>
+  </div>
+
+  <div class="container">
     <div class="item">
       <img src="./imagens/melbaRoy.jpg">
       <h2>Melba Roy</h2>
@@ -73,7 +81,8 @@
       </p>
     </div>
   </div>
-  <script src="scripts/script.js"></script>
 </body>
 
+<script src="scripts/script.js"></script>
+<script src="scripts/card.js"></script>
 </html>

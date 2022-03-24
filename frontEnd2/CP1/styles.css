@@ -4,23 +4,37 @@
   font-family: 'Roboto Mono', monospace;
 }
 
+header{
+	background: #1f1b2a;
+  margin-top: 0%;
+  top: 0 fixed;
+  display: grid;
+}
+
+nav a{
+  text-transform: uppercase;
+  color: #ffc107;
+  text-decoration: none;
+}
+
 body {
   background-color: #1f1b2a;
   background-image: url('http://spittoon.co.uk/wp-content/uploads/2018/10/coding.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {
   padding: .5em 1em;
   background-color: #1f1b2a;
   border-bottom: 1px solid #31ffac;
-  color: #f7e51e;
+  
 }
 
 #enviar{
-  background-color: #f7e51e;
+  background-color: #ffc107;
   border: none;
   color: #1f1b2a;
   padding: 16px 32px;
@@ -40,7 +54,7 @@ h1 {
 .item {
   width: 30em;
   background-color: #1f1b2a;
-  color: #f7e51e;
+  color: #ffc107;
   box-sizing: border-box;
   padding: 1.5em;
   margin-bottom: 1em;
@@ -48,7 +62,13 @@ h1 {
   border: 1px solid #31ffac;
 }
 
-.item img {
+.item:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.item img{
   width: 100%;
 }
 
@@ -56,7 +76,6 @@ h1 {
   font-size: 1em;
   margin-bottom: .2em;
 }
-
 
 /* ------------------------------ Estilos para o tema escuro (Dark-Mode) ----------------------------------------------- */
 
@@ -76,7 +95,6 @@ h1 {
   color: #0392df;
   border-color: #0392df;
 }
-
 
 /* Modificações nos items */
 .items-dark{
