@@ -18,19 +18,29 @@
     <!-- CDN example (unpkg) -->
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ----------------------------- bootstrap ----------------------------- -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>To-Do App</title>
 </head>
 
 <body>
     <header>
-        <nav>
-            <a href="#">Tarefas</a>
+        <nav class="navbar navbar-light justify-content-between">
+            <a class="navbar-brand" href="#">Tarefas</a>
+            <ul class="form-inline" id="user-info">
+                <li class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <span class="navbar-text">
+                        Nome usuário
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <a class="user-image"></a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Finalizar sessão</button>
+                </li>
+            </ul>
         </nav>
-        <div class="user-info">
-            <p>Nome usuário</p>
-            <div class="user-image"></div>
-            <p id="closeApp">Finalizar sessão</i></p>
-        </div>
     </header>
     
     <form class="nova-tarefa">
@@ -69,6 +79,14 @@
     
     <h2 class="titulo-terminadas ">Tarefas terminadas</h2>
     <ul class="tarefas-terminadas "></ul>
+
+    <footer class="navbar-container fixed-bottom"">
+        <nav class="nav nav-pills flex-column flex-sm-row ">
+          <a class="flex-sm-fill text-sm-center nav-link " href="https://github.com/NandaMagal" target="_blank">Fernanda</a>
+          <a class="flex-sm-fill text-sm-center nav-link" href="https://github.com/helomeister"target="_blank">Heloísa</a>
+          <a class="flex-sm-fill text-sm-center nav-link" href="https://github.com/mpederiva"target="_blank">Marta</a> 
+        </nav>
+      </footer>
 
 </body>
 </html>

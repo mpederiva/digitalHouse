@@ -3,7 +3,7 @@ Website to present our second Checkpoint
 
 ## Credits
 - Fernanda Ribeiro - Co-developer - NandaMagal
-- Helo�sa Meister - Co-developer - helomeister
+- Heloísa Meister - Co-developer - helomeister
 - Marta Pederiva - Co-developer - mpederiva
 
 ## REQUISITOS GERAIS:
