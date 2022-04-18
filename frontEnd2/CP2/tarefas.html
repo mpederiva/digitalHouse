@@ -9,15 +9,11 @@
     <!-- ----------------------------- estilos CSS ----------------------------- -->
     <link rel="stylesheet" href="./styles/tarefas.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- ------------------- Biblioteca de icones - Fontawesome -------------------- -->
+    <!-- ------------------- Biblioteca de icones - Fontawesome ---------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <!-- ----------------------------- sweet alert ----------------------------- -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- CDN example (unpkg) -->
-    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>-->
+    <!-- ----------------------------- tirei o sweet alert pq estava pesando o carregamento da página  ----------------------------- -->
     <!-- ----------------------------- bootstrap ----------------------------- -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>To-Do App</title>
@@ -45,7 +41,7 @@
     
     <form class="nova-tarefa">
         <div class="not-done "></div>
-        <input id="novaTarefa" type="text" placeholder="Nova tarefa">
+        <input id="novaTarefa" type="text"  name="novaTarefa" placeholder="Nova tarefa">
         <button id="Task" type="submit">
             <img src="./assets/plus.png" alt="Adicionar uma nova tarefa">
         </button>
@@ -78,7 +74,18 @@
     </ul>
     
     <h2 class="titulo-terminadas ">Tarefas terminadas</h2>
-    <ul class="tarefas-terminadas "></ul>
+    <ul class="tarefas-terminadas ">
+        <li class="tarefa">
+            <div class="done"></div>
+            <div class="descricao">
+                <p class="nome">${tarefa.descricao}</p>
+                <div>
+                    <button><i id="${tarefa.id}" class="fas fa-undo-alt change"></i></button>
+                    <button><i id="${tarefa.id}" class="far fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </li>
+    </ul>
 
     <footer class="navbar-container fixed-bottom"">
         <nav class="nav nav-pills flex-column flex-sm-row ">
@@ -86,7 +93,12 @@
           <a class="flex-sm-fill text-sm-center nav-link" href="https://github.com/helomeister"target="_blank">Heloísa</a>
           <a class="flex-sm-fill text-sm-center nav-link" href="https://github.com/mpederiva"target="_blank">Marta</a> 
         </nav>
-      </footer>
+    </footer>
+    <!-- CDN example (unpkg) -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Novas tarefas -->
+    <script src="./scripts/tasks.js"></script>
 
 </body>
 </html>
