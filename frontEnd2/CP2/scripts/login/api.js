@@ -1,21 +1,20 @@
-/* Quando queremos Cadastrar Novo usuário*/
+// Quando queremos Cadastrar Novo usuário * /
 
 let primeiroNome = document.getElementById('inputName');
 let ultimoNome = document.getElementById('inputLastName');
 let emailLogin = document.getElementById('inputEmail');
 let passwordLogin = document.getElementById('inputPassword');
-let botaoSalvar = document.getElementById('botaoSalvar');
+let btnCadastro = document.getElementById('botaoCadastro');
 
 //criando o objeto que comtempla o email,senha, primeiro nome e último nome do usuário//
-
-let objetoUsers: {
-    firstname = " ",
-    lastname = " ",
-    email = " ",
-    password = " ";
+let objetoUsers = {
+    "firstname": "",
+    "lastname": " ",
+    "email": "",
+    "password": "",
 }
 
-botaoSalve.addEventListener('click', function(event) {
+btnCadastro.addEventListener('click', function(event) {
     event.preventDefault();
     objetoUsers.firstname = primeiroNome.value;
     objetoUsers.lastname = ultimoNome.value;
@@ -24,306 +23,371 @@ botaoSalve.addEventListener('click', function(event) {
     let Users = JSON.stringify(objetoUsers);
 
     /*INCLUIR API COM UM users - cadastrar Novo  recurso*/
-    let urlUsers = "https://ctd-todo-api.herokuapp.com/v1/users";
-    let configDarequ = {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json"
-        },
-        body: {
-            objetoUsers;
-        }
-        fetch(urlUsers, configDarequ)
-        .then(result => {
-            return result.json();
-        }).then(
-            result => {
-                console.log(result.jwt);
-            }
-            ).catch(errou => {
-                console.log(errou);
-            }),
-    };
-}
+    //incluindo validações na APi 
+    //Code: 200 - Operação Sucesso;
+    //400 - Usuário já existe;
+    //500 - Error del servidor //
 
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-//Declaração de variaveis API users / login //
-let emailLogin = document.getElementById('inputEmail');
-let passwordLogin = document.getElementById('inputPassword');
-let botaoSalvar = document.getElementById('botaoSalvar');
-//criando o objeto que comtempla o email,senha de usuário já existente //
-let objetoUsersLogin: {
-    email = " ",
-    password = " ";
-}
-
-botaoSalvar.addEventListener('click', function(event) {
-    event.preventDefault();
-    objetoUsersLogin.email = emailLogin.value;
-    objetoUsersLogin.password = passwordLogin.value;
-    let UsersLogin = JSON.stringify(objetoUsersLogin);
-    
-    /*INCLUIR API COM UM usuario já cadastrado users/login*/
-    let UrlUsersLogin = "https://ctd-todo-api.herokuapp.com/v1/users/login";
+    let urlUsers = ("https://ctd-todo-api.herokuapp.com/v1/users");
     let configDaRequ = {
         method: "POST",
         headers: {
             "Content-type": "application/json"
         },
-        body: {
-            objetoUsersLogin:
-        }
-        fetch(UrlUsersLogin, configDaRequ)
-        .then(resultado => {
-            return resultado.json();
-        }).then(
+        body: objetoUsers
+        fetch(urlUsers, configDaRequ),
+        then(
             result => {
-                console.log(resultado.jwt);
+                if (result.status == 201 || result.status == 200)
+                    return result.json();
             }
-            ).catch(errou => {
+            //Se for diferente destas duas opções caimos no throw para a execução cair no Catch*/
+            throw resposta;
+        ).then(function(resposta) {
+            userSucess(resposta.jwt);
+            console.log(resposta.jwt);
+        })
+        .catch(errou => {
+            userErro(errou);
+            console.log(errou);
+        });
+    }
+    else {
+        alert("Todos os campos devem ser preenchidos para prosseguir");
+    }
+});
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
+//Declaração de variaveis API users / login //
+let emailLogin = document.getElementById('inputEmail');
+let passwordLogin = document.getElementById('inputPassword');
+let botaoSalvar = document.getElementById('botaoSalvar');
+
+//criando o objeto que contempla o email,senha de usuário já existente //
+let objetoUsersLogin = {
+    "email": "",
+    "password": ""
+}
+
+botaoSalvar.addEventListener('click', function(event) {
+        event.preventDefault();
+        objetoUsersLogin.email = emailLogin.value;
+        objetoUsersLogin.password = passwordLogin.value;
+        let usersLogin = JSON.stringify(objetoUsersLogin);
+
+        //INCLUIR API COM UM usuario já cadastrado users / login * /
+        //validar as APIs //incluindo validações na APi 
+        //Code: 200 - Operação Sucesso;
+        //400 - Senha incorreta;
+        //404 Usuario não existe
+        //500 - Error del servidor //
+
+        let urlUsersLogin = "https://ctd-todo-api.herokuapp.com/v1/users/login";
+        let configDaRequ = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            }
+
+            body: objetoUsersLogin
+
+                fetch(urlUsersLogin, configDaRequ).then(
+                result => {
+                    if (result.status == 201 || result.status == 200)
+                        return result.json();
+                }
+                //Se for diferente destas duas opções caimos no throw para a execução cair no Catch*/
+                throw resposta;
+            ).then(function(resposta) {
+                loginSucess(resposta.jwt);
+                console.log(resposta.jwt);
+            }).catch(errou => {
+                loginErro(errou);
                 console.log(errou);
-            }),
+            });
         };
-    });
-        
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-//Declarando variaveis API GET ME //
-        let identificador = document.getElementById('inputId');
+
+        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
+        //Declarando variaveis API GET ME //
+
         let primeiroName = document.getElementById('inputName');
         let ultimoNome = document.getElementById('inputLastName');
         let email = document.getElementById('inputEmail');
-        
+
         /*INCLUIR API DADOS DO USUARIO GET ME*/
-        if (identificador.value != "") {
-            
-            //executar a busca na API//
-            fetch = ("https: //ctd-todo-api.herokuapp.com/v1/users/getMe");
-            .then(function(result => {
-                return result.primeiroNome();
-            })
-            .then(result => {
-                return result.ultimoNome;
-            })
-            .then(result => {
-                return result.email();
-                console.log(result);
-            })
-        }).catch(errou => {
-            console.log(errou);
-        });
+        //incluindo validações na APi 
+        //Code: 200 - Operação Sucesso;
+        //404- Usuário não existe;
+        //500 - Error del servidor //
+        // armazenar o token na variavel atraves do Local storage session storage//
+
+        let token = localStorage.getItem("jwt");
+
+        //executar a busca na API//
+        let urlUsersBuscar = "https://ctd-todo-api.herokuapp.com/v1/users/getMe";
+        let configDaRequ = {
+            method: "GET",
+            headers: token
+            fetch(urlUsersBuscar, configDaRequ).then(
+                result => {
+                    if (result.status == 201 || result.status == 200)
+                        return result.json();
+                }
+                //Se for diferente destas duas opções caimos no throw para a execução cair no Catch*/
+                throw resposta;
+            ).then(function(result) {
+                result.email();
+                buscarSucess(result.jwt);
+                console.log(result.jwt);
+
+            }).then(function(result) {
+                result.primeiroNome();
+                buscarSucess(result.jwt);
+                console.log(result.jwt);
+
+            }).then(function(result) {
+                result.ultimoNome();
+                buscarSucess(result.jwt);
+                console.log(result.jwt);
+
+            }).catch(errou => {
+                buscarErro(errou);
+                console.log(errou);
+            });
+        };
     };
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
     //Declaração de variaveis API Criar uma tarefa //
-    let idTarefa = document.getElementById('idTarefa');
-    let descrever = document.querySelectorAll('descricao');
+
+    let descrever = document.querySelectorAll('description');
     let nomeTarefa = document.getElementById('nometarefa');
-    let dataCriacao = document.getElementById('timestamp');
-    let botaoSalvarNova = document.getElementById('Task');
-    
+
+    let botaoSalvarNova = document.getElementById('task');
+
     console.log(description);
-    
+
     console.log(nomeTarefa);
-    
+
     console.log(dataCriacao);
-    
+
     //criando o objeto que comtempla a criação de uma nova Tarefa //
-    
     let objetoNewTask: {
-        "id" = "",
-        "description" = " ",
-        "completed" = "false",
-        "userId" = "",
-        "createdAt" = ""
+        "description": " ",
+        "completed": "false",
+        "createdAt": ""
     }
-    
+
     botaoSalvarNova.addEventListener('click', function(event) {
-        event.preventDefault();
-        let NovasTarefas = JSON.stringify(objetoNewTask);
-        objetoNewTask.id = idTarefa.value;
-        objetoNewTask.description = descrever.value;
-        objetoNewTask.userId = identificador.value;
-        objetoNewTask.createAt = dataCriacao.value;
-        
-        if (objetoNewTask.completed) {
-            let urlTasks = "https://ctd-todo-api.herokuapp.com/v1/tasks";
-            let configuracao = {
-                method: "POST",
-                headers: {
-                    "Authorization": "jwt"
-                },
-                body: {
-                    "description" = " ",
-                    "completed" = "false",
-                }
-                fetch(urlTasks, configuracao)
-                .then(resultado => {
-                    return resultado.json();
-                }).then(
-                    resultado => {
-                        console.log(resultado.Authorization);
+            event.preventDefault();
+
+            let NovasTarefas = JSON.stringify(objetoNewTask);
+
+            objetoNewTask.description = descrever.value;
+            objetoNewTask.createAt = dataCriacao.value;
+
+            let token = localStorage.getItem("jwt");
+            if (objetoNewTask.completed) {
+                let urlNewTasks = "https://ctd-todo-api.herokuapp.com/v1/tasks";
+                let configuracao = {
+                    method: "POST",
+                    headers: token
+
+                        body: {
+                        "description" = " ",
+                        "completed" = false
                     }
-                    ).catch(errou => {
+
+                        fetch(urlNewTasks, configuracao).then(
+                        result => {
+                            if (result.status == 201 || result.status == 200)
+                                window.alert("Tarefa Criada com Sucesso");
+                            return resultado.json();
+
+                        }
+                        throw resposta;
+                    ).then(function(resposta) {
+                        tarefaSucess(resposta.jwt);
+                        console.log(resposta.jwt);
+                    }).catch(errou => {
+                        tarefaErro(errou);
                         console.log(errou);
                     });
                 };
-                );
-            }
-            
-            //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-            //Declaração de variaveis API Lista de tarefas tasks - method Get //
-            let newTask = document.getElementById('inputnovaTarefa');
-            let tarefasPendentesLi = document.querySelectorAll('li');
-            let botaoSalvarNova = document.getElementById('botaoTask');
-            console.log(tarefasPendentesLi);
-            //criando o objeto que comtempla a criação de uma Lista de Tarefas//
-            let objetoListaTask: {
-                "id" = "",
-                "description" = " ",
-                "completed" = "false",
-                "userId" = "",
-                "createdAt" = ""
-            }
-            botaoSalvarNova.addEventListener('click', function(event) {
-                event.preventDefault();
-                let lista = JSON.stringify(objetoListaTask);
-                objetoListaTask.id = idTarefa.value;
-                objetoListaTask.description = descrever.value;
-                objetoListaTask.userId = identificador.value;
-                objetoListaTask.createAt = dataCriacao.value;
+            };
+        }
+        //Percorrer array çista de tarefas//
+        //Declaração de variaveis API obter Lista de tarefas tasks - method Get //
+        let newTask = document.getElementById('inputnovaTarefa');
+        let tarefasPendentesLi = document.querySelectorAll('li');
+        let botaoSalvarNova = document.getElementById('botaoTask');
 
+        console.log(tarefasPendentesLi);
+
+        //criando o objeto que comtempla a criação de uma Lista de Tarefas//
+        let objetoListaTask: {
+
+            "description" = " ",
+            "completed" = "false",
+
+        }
+
+        botaoSalvarNova.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                let lista = JSON.stringify(objetoListaTask);
+                objetoListaTask.description = descrever.value;
+
+
+                let token = localStorage.getItem("jwt");
                 if (objetoListaTask.completed) {
-                    fetch("https://ctd-todo-api.herokuapp.com/v1/tasks");
+                    let urlListaTasks = ("https://ctd-todo-api.herokuapp.com/v1/tasks");
                     let configuracao = {
                         method: "GET",
-                        headers: {
-                            "Authorization": "jwt"
-                            .then(resultado => {
+                        headers: token
+                        fetch(urlListaTasks, configuracao).then(
+                            result => {
+                                if (result.status == 201 || result.status == 200)
+                                    window.alert("Obtendo Lista de Tarefas Sucesso");
                                 return resultado.json();
-                            })
-                            .then(resultado => {
-                                return objetoListaTask.id();
-                            })
-                            .then(resultado => {
-                                return objetoListaTask.description();
-                            })
-                            .then(resultado => {
-                                return objetoListaTask.userId();
-                            })
-                            .then(resultado => {
-                                return objetoListaTask.createdAt();  
-                            }).catch(errou => {
+                            }
+                            throw resposta;
+                        ).then(function(resposta) {
+                            tarefaListaSucess(resposta.jwt);
+                            console.log(resposta.jwt);
+                        }).catch(errou => {
+                                tarefaListaErro(errou);
                                 console.log(errou);
-                            });
-                        });
-                    }
-                });
-                
-                //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-                //declaração de variaveis para obter uma tarefa method GET//
-                let newTask = document.getElementById('inputnovaTarefa');
-                let identfTarefa = document.getElementById(idTarefa);
-                let botaoSalvarNova = document.getElementById('botaoTask');
-                
-                console.log(idTarefa);
-                
-                //criando o objeto que comtempla a criação de uma Lista de Tarefas//
-                
-                let objetoobterTask: {
-                    "id" = "",
-                    "description" = " ",
-                    "completed" = "false",
-                    "userId" = "",
-                    "createdAt" = ""
-                }
-                botaoSalvarNova.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    if (objetoListaTask.completed) {
-                        fetch("https://ctd-todo-api.herokuapp.com/v1/tasks/{id}");
-                        let configuracao = {
-                            method: "GET",
-                            headers: {
-                                "Authorization": "jwt"
-                                .then(resultado => {
-                                    return resultado.json();
-                                })
-                                .then(resultado => {
-                                    return objetoListaTask.id();
-                                }) oListaTask.createdAt();  
-                            }).catch(errou => {
-                                console.log(errou);
-                            });
-                        });
-                    }
-                });
-                
-                //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-                //declaração de variaveis metodo PUT api //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-                //declaração de variaveis para MODIFICAR  uma tarefa method PUT//
-                let identfTarefa = document.getElementById(idTarefa);
-                let botaoSalvarNova = document.getElementById('botaoTask');
-
-                console.log(idTarefa);
-                let objetoobterTask: {
-                    "id" = "",
-                    "description" = " ",
-                    "completed" = "false",
-                    "userId" = "",
-                    "createdAt" = ""
-                }
-                if (objetoNewTask.completed) {
-                    fetch = "https://ctd-todo-api.herokuapp.com/v1/tasks/{id}";
-                    let configuracao = {
-                        method: "PUT",
-                        headers: {
-                            "Authorization": "jwt"
-                        },
-                        body: {
-                            "description" = " ",
-                            "completed" = "false",
+                            }
                         }
-                        .then(resultado => {
-                            return resultado.json();
-                        }).then(
-                            resultado => {
-                                console.log(resultado.Authorization);
-                            }
-                            ).catch(errou => {
-                                console.log(errou);
-                            });
-                        };
-                    });
-                    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
-                    //declaracao  de variaveis para eliminar tarefa - API DELETE//
-                    let identfTarefa = document.getElementById(idTarefa);
-                    let botaoSalvarNova = document.getElementById('botaoTask');
-                    console.log(idTarefa);
-                    let objetoEliminarTask: {
-                        "id" = "",
-                        "description" = " ",
-                        "completed" = "false",
-                        "userId" = "",
-                        "createdAt" = ""
                     }
-                    if (objetoEliminarTask.completed) {
-                        fetch = "https://ctd-todo-api.herokuapp.com/v1/tasks/{id}";
-                        let configuracao = {
-                            method: "DELETE",
-                            headers: {
-                                "Authorization": "jwt"
-                            },
-                            body: {
-                                "description" = " ",
-                                "completed" = "false",
-                            }
-                            .then(resultado => {
-                                return resultado.json();
-                            }).then(
-                                resultado => {
-                                    console.log(resultado.Authorization);
-                                }
-                                ).catch(errou => {
-                                    console.log(errou);
-                                });
-                            };
-                        });
+                }
+            }
+        }
+    }
+}
+
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
+//declaração de variaveis para obter uma tarefa method GET//
+let newTask = document.getElementById('inputnovaTarefa');
+let identfTarefa = document.getElementById('idTarefa');
+let botaoSalvarNova = document.getElementById('botaoTask');
+
+console.log(idTarefa);
+
+//criando o objeto que comtempla a criação para obter uma Tarefa ela  chamada atraves do id da tarefa usar template string//
+let objetoObterTask: {
+    "description" = " ",
+    "completed" = false,
+
+}
+botaoSalvarNova.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        let token = localStorage.getItem("jwt");
+        if (objetoObterTask.completed) {
+            let urlObterTarefa = ("https://ctd-todo-api.herokuapp.com/v1/tasks/´$id´");
+        }
+        let configuracao = {
+            method: "GET",
+            headers: token
+
+                fetch(urlObterTarefa, configuracao).then(
+                result => {
+                    if (result.status == 201 || result.status == 200)
+                        return resultado.json();
+                    window.alert("Obtendo Tarefas com Sucesso");
+                }) throw resposta;
+        ).then(function(resposta) {
+            tarefaObterSucess(resposta.jwt);
+            console.log(resposta.jwt);
+        }).catch(errou => {
+                tarefaObterErro(errou);
+                console.log(errou);
+            }
+        }
+    };
+}
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
+declaração de variaveis metodo PUT api chamada atraves do id da tarefa usar template string ///xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
+
+//declaração de variaveis para MODIFICAR  uma tarefa method PUT//
+let identfTarefa = document.getElementById('idTarefa');
+let botaoSalvarNova = document.getElementById('botaoTask');
+
+console.log(idTarefa);
+
+let objetoobterTask: {
+
+    "description" = " ",
+    "completed" = "false",
+
+}
+let token = localStorage.getItem("jwt");
+if (objetoNewTask.completed) {
+    let urlModifiqueTask = "https://ctd-todo-api.herokuapp.com/v1/tasks/´$id´";
+    let configuracao = {
+        method: "PUT",
+        headers: token
+
+            body: {
+            "description" = " ",
+            "completed" = false
+        }
+
+
+            fetch(urlModifiqueTask, configuracao).then(
+            result => {
+                if (result.status == 201 || result.status == 200)
+                    window.alert("Modificando Tarefas com Sucesso");
+                return resultado.json();
+            })
+        throw resposta
+    ).then(function(resposta) {
+        tarefaModifiqSucess(resposta.jwt);
+        console.log(resposta.jwt);
+    }).catch(errou => {
+            tarefaModifiqErro(errou);
+            console.log(errou);
+        };
+    }
+}
+
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
+//declaracao  de variaveis para eliminar tarefa - API DELETE//
+let identfTarefa = document.getElementById(idTarefa);
+let botaoSalvarNova = document.getElementById('botaoTask');
+
+console.log(idTarefa);
+
+let objetoEliminarTask: {
+
+    "description" = " ",
+    "completed" = "false",
+}
+let token = localStorage.getItem("jwt");
+if (objetoEliminarTask.completed) {
+    let urlDeleteTask = "https://ctd-todo-api.herokuapp.com/v1/tasks/´$id´";
+    let configuracao = {
+        method: "DELETE",
+        headers: token
+
+            body: {
+            "description" = " ",
+            "completed" = false,
+        }
+        throw resposta;
+    ).then(function(resposta) {
+        tarefaDeletarSucess(resposta.jwt);
+        console.log(resposta.jwt);
+    }).catch(errou => {
+            tarefaDeleteErro(errou);
+            console.log(errou);
+        }
+    });
+}
+
+//Primeiro fazemos umalista de tarefas//# Primeiro eu fiz uma lista com dicionários - eles são os nomes dos deputados e o link da API respectiva de cada um. Os parâmetros foram json, número de itens por página e o número da página (são mais de 500 deputados, então são seis páginas
