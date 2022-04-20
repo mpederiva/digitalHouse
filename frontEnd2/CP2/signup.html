@@ -6,72 +6,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon.jpg" type="image/x-icon" />
+
     <!-- ----------------------------- bootstrap ----------------------------- -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>To-Do App</title>
+
     <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
     <link rel="stylesheet" href="styles/acesso.css">
-   
 </head>
 
+<!--Foi  incluido todos os identificadores dos inputs e as tags small-------->
+
 <body>
-    <div class="left">
-        <img src="./assets/pessoa-signup.png" alt="">
-    </div>
+    <form method="POST" name="formRegister">
+        <h1>DADOS NOVA CONTA</h1>
 
-    <div class="right">
-        <form>
-            <div class="form-header">
-                <p>To-Do App</p>
-            </div>
-            <label>
-                Identificador Único:
-                <input id="inputId", type="number">
-                <small id="identificadorValidacao"></small>
-            </label>
-            <label>
-                Nome:
-                <input id="inputName",type="text">
-                <small id="nomeValidacao"></small>
-            </label>
-            <label>
-                Sobrenome:
-                <input id="inputLastName", type="text">
-                <small id="sobrenomeValidacao"></small>
-            </label>
-            <label>
-                Email:
-                <input id="inputEmail" type="text">
-                <small id="emailValidacao"></small>
-            </label>
-            <label>
-                Senha:
-                <input id="inputPassword" type="password">
-                <small id="passwordValidacao"></small>
-            </label>
-            <label>
-                Repetir senha:
-                <input id="inputRepeatPassword" type="password">
-                <small id="passwordValidacao"></small>
-            </label>
-            
-            <button id="Nova Conta">Criar conta</button>
-        </form>
-
-        <div class="ingressar">
-            <a href="index.html">Já possui conta? Acesse aqui</a>
+        <div class="image"></div>
+        <div class="left">
+            <img src="./assets/pessoa-signup.png" alt="">
         </div>
-    </div>
-    <footer class="navbar-container fixed-bottom"">
-        <nav class="nav nav-pills flex-column flex-sm-row ">
-            <a class="flex-sm-fill text-sm-center nav-link " href="https://github.com/NandaMagal" target="_blank">Fernanda</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="https://github.com/helomeister"target="_blank">Heloísa</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="https://github.com/mpederiva"target="_blank">Marta</a> 
-        </nav>
-    </footer>
 
-     <!-- ---------------------- lógica aplicada no registro -------------------- -->
-     <script src="/scripts/login/utils.js"></script>
-     <script src="/scripts/login/signup.js"></script>
-</body>
+        <div class="right">
+            <form>
+                <div class="form-header">
+                    <p>To-Do App</p>
+                </div>
+
+                <label>
+                    Nome:
+                    <input id="inputName" type="text" required>
+                    <small id="nomeValidacao"></small>
+            </label>
+
+                <label>
+                    Sobrenome:
+                    <input id="inputLastName" type="text" required>
+                    <small id="sobrenomeValidacao"></small>
+            </label>
+
+                <label>
+                    Email:
+                    <input id="inputEmail" type="text" required>
+                    <small id="emailValidacao"></small>
+            </label>
+
+                <label>
+                    Senha:
+                    <input id="inpuPassword"  type="password" required>
+                    <small id="passwordValidacao"></small>
+            </label>
+
+                <label>
+                    Repetir senha:
+                    <input id="inputRepeatPassword" type="password" required>
+                    <small id="repetirPasswordValidacao"></small>
+                </label>
+
+                <button id="botaoCadastro" type="submit">Criar conta</button>
+
+                <button id="validarSenha" type="submit">Validar Senha</button>
+                <h3 id="resposta">
+            </form>
+
+            <div class="ingressar">
+                <a href="index.html">Já possui conta? Acesse aqui para efetuar seu login</a>
+            </div>
+        </div>
+
+
+        <footer class="navbar-container fixed-bottom" ">
+            <nav class="nav nav-pills flex-column flex-sm-row ">
+                <a class="flex-sm-fill text-sm-center nav-link "href="https://github.com/NandaMagal "target="_blank ">Fernanda</a>
+                <a class="flex-sm-fill text-sm-center nav-link "href="https://github.com/helomeister "target="blank ">Heloísa</a>
+                <a class="flex-sm-fill text-sm-center nav-link "href="https://github.com/mpederiva "target="blank ">Marta</a>
+            </nav>
+        </footer>
+        <script src="/scripts/login/funcoes.js "></script>
+        <script src="/scripts/login/api.js "></script>
+        <script src="/scripts/validacoes/utils.js "></script>
+        <script src="/scripts/login/singup.js "></script>
+        <script src="/scripts/tarefas/tarefas.js "></script>
+    </body>
 </html>
