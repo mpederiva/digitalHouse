@@ -1,4 +1,9 @@
-@import url('./common.css');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
 header {
     display: flex;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -7,12 +12,28 @@ header {
     margin-bottom: 2em;
 }
 
-header a {
+a {
     display: block;
     width: fit-content;
     padding: .7em 1em;
     border-bottom: .2em solid white;
     text-decoration: none;
+}
+
+body {
+    background-color: #F6F6F6;
+    min-height: 100vh;
+    background-image: url(".././assets/blueDots.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 .form-inline {
@@ -22,11 +43,11 @@ header a {
     color: rgb(223, 223, 223);
     list-style-type: none;
 }
-
+                            
 .navbar-text {
     text-transform: capitalize;
 }
-
+                            
 .nav-item .user-image {
     height: 2em;
     width: 2em;
@@ -36,7 +57,7 @@ header a {
     margin-left: .7em;
 }
 
-.nav-item button{
+.nav-item button {
     margin-left: 15px;
     font-size: .7em;
     background-color: rgb(218, 88, 88);
@@ -45,7 +66,6 @@ header a {
     padding: 5px 10px;
     cursor: pointer;
 }
-
 /* Nova tarefa ----------------------------------------------------------- */
 
 .nova-tarefa {
@@ -92,6 +112,7 @@ header a {
 
 .nova-tarefa button:hover {
     opacity: 1;
+    cursor: pointer;
 }
 
 .nova-tarefa button img {
@@ -106,10 +127,7 @@ header a {
     margin-right: 1em;
     border-radius: 50%;
     cursor: pointer;
-    text-align: center;
-    color: grey;
 }
-
 /* Lista de tarefas ----------------------------------------------------------- */
 
 .tarefas-pendentes {
@@ -124,6 +142,8 @@ header a {
     display: flex;
     align-items: center;
     margin-bottom: 1.5em;
+    position: relative;
+    flex-wrap: wrap;
 }
 
 .tarefa .not-done {
@@ -171,9 +191,12 @@ header a {
     background-color: white;
     padding: 1em 2em;
     box-shadow: 2px 2px 5px lightgrey;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .tarefa .nome {
+    width: 55vw;
     color: rgb(95, 95, 95);
 }
 
@@ -181,7 +204,6 @@ header a {
     font-size: .9em;
     color: rgb(134, 134, 134);
 }
-
 /* Tarefas terminadas ----------------------------------------------------------- */
 
 .titulo-terminadas {
@@ -193,7 +215,6 @@ header a {
     border-radius: .2em;
     box-shadow: 3px 3px 5px lightgrey;
     color: rgb(170, 170, 170);
-    font-weight: 400;
     font-size: 1.1em;
     margin-left: calc(15% - 4em);
     z-index: 20;
@@ -207,11 +228,43 @@ header a {
     margin: 2em 15%;
 }
 
-.tarefas-terminadas i{
+.tarefas-terminadas i {
     color: grey;
     background-color: rgb(228, 228, 228);
 }
-.tarefas-terminadas button{
+
+.tarefas-terminadas .not-done {
+    background-color: lightgrey;
+    border-color: grey;
+}
+
+.tarefas-terminadas .not-done::before,
+.tarefas-terminadas .not-done::after {
+    background-color: grey !important;
+}
+
+.tarefas-terminadas .tarea .descripcion {
+    background-color: rgb(228, 228, 228);
+}
+
+.tarefas-terminadas .tarea .descripcion .nombre {
+    color: grey;
+    text-decoration: line-through;
+}
+/* Botón para eliminar tarea ----------------------------------------------------------- */
+
+.icon-delete-task {
+    display: none;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.tarefa:hover .icon-delete-task {
+    display: inline;
+}
+
+.tarefas-terminadas button {
     margin-left: 10px;
 }
 
@@ -224,21 +277,45 @@ header a {
     text-decoration: line-through;
 }
 
-#skeleton .descricao{
-    background-color: rgb(189, 189, 189);
-}
-#skeleton p{
-    background-color: rgb(214, 214, 214);
-    color: rgb(214, 214, 214);
-}
-#skeleton .not-done{
+#skeleton .descricao {
     background-color: rgb(189, 189, 189);
 }
 
-#skeleton{
+#skeleton p {
+    background-color: rgb(214, 214, 214);
+    color: rgb(214, 214, 214);
+}
+
+#skeleton .not-done {
+    background-color: rgb(189, 189, 189);
+}
+
+#skeleton {
     animation: trasparencia 1s infinite;
 }
+
 @keyframes trasparencia {
-    0%{ opacity: 0.5;}
-    100%{ opacity: 0.8;}
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Footer ----------------------------------------------------------- */
+footer {
+    bottom: 0 fixed;
+    display: grid;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    box-shadow: 0px 3px 5px lightgrey;
+    padding: 0 3em;
+}
+
+footer nav a {
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: x-small;
 }
