@@ -1,144 +1,211 @@
-/*Capturando os campos do formulário*/
+//captura dos elementos//
 
-let emailLogin = document.getElementById('inputEmail');
-let passwordLogin = document.getElementById('inputPassword');
-let botaoSalvar = document.getElementById('botaoSalvar');
+let nome = document.getElementById('inputName');
+let sobrenome = document.getElementById('inputLastName')
+let email = document.getElementById('inputEmailCadastro');
+let senha = document.getElementById('inputPassword');
+let repetirSenha = document.getElementById('inputRepeatPassword');
+let cadastrar = document.getElementById('botaoCadastro');
+let botaoValida = document.getElementById('validarSenha');
 
-let emailLoginNormalizado;
-let passwordLoginNormalizado;
+let nomeCadastroNormalizado;
+let sobrenomeCadastroNormalizado;
+let emailCadastroNormalizado;
+let passwordCadastroNormalizado;
 
-let emailEValido = false;
-let passwordEValido = false;
+let nomeValido = false;
+let sobrenomeValido = false;
+let emailCadastroValido = false;
+let passwordCadastroValido = false;
+let repetirPasswordValido = false;
 
-/*Desabilita o botão ao iniciar a página*/
+/*Desabilita o botão  de validação da senha e do cadastro ao iniciar a página*/
 
-botaoSalvar.setAttribute('disabled', true);
-botaoSalvar.innerText = "Bloqueado";
+botaoValida.setAttribute('disabled', true);
+botaoValida.innerText = "Bloqueado"
+cadastrar.setAttribute('disabled', true);
+cadastrar.innerText = "Bloqueado"
 
-/*Cria o objeto que representa o login do usuário*/
 
-const usuarioObjeto = {
-    email: " ",
-    password: " "
+//validacao da senha  utilizando metodo match//
+function validaSenha() {
+    //criando referencia aos elementos de captura da função//
+    //informa resposta pro usuário referencia a sua senha //
+    var respostaUsuario = document.getElementById('resposta');
+    var inputSenha = document.getElementById('inputPassword');
+    // obtem o conteudo da senha obtido//
+    let senha = inputPassword.value;
+    let erros = []; // vetor de erros//
+
+    //Verifica se o tamanho da senha é invalido //
+    if (senha.length < 8 || senha.length > 10) {
+        erros.push("Possuir entre 8 e 15 caracteres");
+    }
+    //verifica se não possui numeros //
+    if (senha.match(/[0-9]/g) == null) {
+        erros.push("deve possui números (no mínimo, 1)");
+    }
+
+    //verfica se não possui letras minusculas//]
+    if (!senha.match(/[a-z]/g)) {
+        erros.push("possuir letras minúsculas(no mínimo,1)");
+    }
+
+    //verifica se nao possui letras maiusculas ou se possui apenas 1//
+
+    if (!senha.match(/[A-Z]/g) || (senha.match(/[A-Z]/g)).length == 1) {
+        erros.push("possuir letras maiusculas(no mínimo,2)");
+    }
+
+    //verifica se possui simbolos ou ""//
+    if (!senha.match(/[A-Z]/g) || (senha.match(/[A-Z]/g)).length == 1) {
+        erros.push("possuir simbolos(no mínimo,2)");
+    }
+    //se vetor esta vazio (significa que não foram encontrados erros)
+    if (erros.length == 0) {
+        respostaUsuario.textContent = "ok! Senha Valida!"
+    } else {
+        respostaUsuario.textContent = "Erro...A senha deve " + erros.join(",")
+    }
 }
 
-//Executa ao clicar no botão de Acessar
-botaoSalvar.addEventListener('click', function(evento) {
-
-    //Se a validação passar, se for true o retorno da função....
-    if (validaTelaDeLogin()) {
-        //Normalizando - Retirando os espaços em branco
-        emailLoginNormalizado = retiraEspacosDeUmValorInformado(emailLogin.value);
-        passwordLoginNormalizado = retiraEspacosDeUmValorInformado(passwordLogin.value);
-
-        emailLoginNormalizado = converteValorRecebidoEmMinusculo(emailLoginNormalizado);
-
-        //Atribui as variáveis normalizadas ao objeto do login
-        usuarioObjeto.email = emailLoginNormalizado;
-        usuarioObjeto.password = passwordLoginNormalizado;
-
-        console.log(usuarioObjeto);
-
-        //Se a validação NÃO passar, se for false o retorno da função....
-    } else {
-        evento.preventDefault();
-        alert("Ambas as informações devem ser preenchidas");
-    }
-});
-
-//Ao clicar e interagir com o campo de "email" no formulário
-
-emailLogin.addEventListener('blur', function() {
+senha.addEventListener('blur', function() {
     //Capturando o elemento <Small> do html
-    let emailValidacao = document.getElementById('emailValidacao');
+    let passwordValidar = document.getElementById('passwordValidacao');
 
-    if (emailLogin.value != " ") {
-        //Email tem alguma informação
-        emailValidacao.innerText = " ";
-        emailEValido = true;
+    if (senha.value != " ") {
+        //Password tem alguma informação
+        passwordValidar.innerText = " ";
+        passwordValidar.style.border = ``;
+        passwordValidar.style.backgroundColor = "green";
+        passwordCadastroValido = true;
     } else {
-        //Email está vazio
-        emailValidacao.innerText = "Campo obrigatório";
-        emailValidacao.style.color = "#E01E1E";
-        emailValidacao.style.fontSize = "10"
-        emailValidacao.style.fontWeight = "italic"
-        emailLogin.style.border = `2px solid #E01E1E`
-        emailEValido = false;
+        //Senha está vazio
+        passwordValidar.innerText = "Senha obrigatória";
+        passwordValidar.style.color = "#E01E1E";
+        passwordValidar.style.fontSize = "10"
+        passwordValidar.style.fontWeight = "italic"
+        passwordValidar.style.border = `2px solid #E01E1E`
+        passwordValidar.style.backgroundColor = "red";
+        passwordCadastroValido = false;
+    }
+    validaSenha();
+    validaTelaDeCadastro();
+});
+
+repetirSenha.addEventListener('blur', function() {
+    //Capturando o elemento <Small> do html
+    let repetirPasswordValidar = document.getElementById('repetirPasswordValidacao');
+
+    //verificando se as duas senhas digitadas são iguais
+    if (senha.value == repetirSenha.value) {
+        window.alert("Senhas digitadas identicas , prosseguir no cadastramento");
+        passwordCadastroValido = true;
+        repetirPasswordValido = true;
+        //caso as senhas sejam diferentes apagamos os campos preenchidos
+    } else {
+        window.alert("Senhas digitadas não são identicas , refazer a digitação por gentileza.");
+        passwordValidar.innerText = " ";
+        repetirPasswordValidar.innerText = "";
+        passwordCadastroValido = false;
+        repetirPasswordValido = false;
     }
 
-    /* Incluir metodo regex verificar caracteres do email se são validos. Email tem caracteres especificos e preenchidos corretamente
-     */
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailLogin.value)) {
-        emailValidacao.innerText = " ";
-        emailLogin.style.backgroundColor = "blue";
-        emailEValido = true;
+    if (repetirSenha.value != " ") {
+        //repetir a Password tem alguma informação
+        console.log("esta preenchido");
+        repetirPasswordValidar.innerText = "";
+        repetirPasswordValidar.style.border = ``;
+        repetirPasswordValidar.style.backgroundColor = "green";
+        repetirPasswordValido = true;
     } else {
-        /*Email esta com preenchimento incorreto conforme padrão Regex*/
-        emailValidacao.innerText = "O Email não é Válido";
-        emailValidacao.style.color = "#E05E";
-        emailValidacao.style.fontSize = "10";
-        emailValidacao.style.fontWeight = "italic";
-        emailLogin.style.border = `2 px solid #D01F8E`;
-        emailEValido = false;
+        //Senha está vazio
+        repetirPasswordValidar.innerText = "Obrigatório repetir a mesma Senha";
+        repetirPasswordValidar.style.color = "#E01E1E";
+        repetirPasswordValidar.style.fontSize = "10"
+        repetirPasswordValidar.style.fontWeight = "italic"
+        repetirPasswordValidar.style.border = `2px solid #E01E1E`
+        repetirPasswordValido = false;
     }
-    validaTelaDeLogin();
+    validaSenha();
+    validaTelaDeCadastro();
 });
 
 
-/*implementando metodo blur -Validação da Senha
-passwordLogin.addEventListener('blur', function() {
-        let passwordValidacao = document.getElementById('passwordValidacao');
-        //Incluimos o elemento  <Small> do html e capturamos o mesmo
-        if (passwordLogin.value != " ") {
-            //Senha é diferente de vazio
-            passwordValidacao.innerText = " ";
-            passwordEValido = true;
-        } else {
-            //senha está vazio
-            passwordValidacao.innerText = "Senha obrigatória"
-            passwordLogin.style.backgroundColor = "blue";
-            passwordValidacao.style.color = "#E05E"
-            passwordValidacao.style.fontSize = "12"
-            passwordValidacao.style.fontWeight = "italic"
-            passwordLogin.style.border = `2 px solid #D01F8E`
-            passwordEValido = false;
-        }
-        /*Incluir método regex para validação de senha: -
-        pelo menos 8 caracteres -
-        deve conter pelo menos 1 letra maiúscula, 1 letra minúscula e 1 número -
-        Pode conter caracteres especiais
-        if (/^?=.\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(passwordLogin.value)) {
-            passwordValidacao.innerText = " ";
-            passwordEValido = true;
-        } else {
-            /*Senha esta com preenchimento incorreto conforme padrão Regex*/
-/*passwordValidacao.style.fontWeight = "italic";
-passwordValidacao.style.color = "#E05E";
-passwordValidacao.style.fontSize = "10";
-passwordValidacao.innerText = ("A senha não é Válido,favor digitar : pelo menos 8 caracteres, deve conter pelo menos 1 letra maiúscula,1 letra minúscula e 1 número, Pode conter caracteres especiais ");
-campoPasswordLogin.style.border = `2 px solid #D01F8E `;
-passwordEValido = false;
+const cadastroObjeto = {
+    nome: "",
+    sobrenome: "",
+    email: "",
+    password: ""
 }
-validaTelaDeLogin();
-); */
 
-function validaTelaDeLogin() {
-    if (emailEValido) {
-        botaoSalvar.removeAttribute('disabled')
-        botaoSalvar.innerText = "Acessar"
-        return true
+nome.addEventListener('blur', function() { //Capturando o elemento <Small> do html
+    let nomeValidar = document.getElementById('nomeValidacao');
+    if (nome.value != "") {
+        //nome tem informação
+        nomeValidar.innerText = "";
+        nomeValidar.style.border = ``;
+        nomeValido = true;
     } else {
-        botaoSalvar.setAttribute('disabled', true);
-        botaoSalvar.innerText = "Bloqueado";
-        return false;
+        //nome está vazio
+        nomeValidar.innerText = "Campo obrigatório";
+        nomeValidar.style.color = "#E01E1E";
+        nomeValidar.style.fontSize = "8";
+        nomeValidar.style.fontWeight = "bold";
+        nomeValidar.style.border = `1px solid #E01E1E`;
+        nomeValido = false;
     }
-    if (passwordEValido) {
-        botaoSalvar.removeAttribute('disabled');
-        botaoSalvar.innerText = "Acessar";
+    validaTelaDeCadastro();
+});
+
+
+sobrenome.addEventListener('blur', function() {
+    let sobrenomeValidar = document.getElementById('sobrenomeValidacao');
+    if (sobrenome.value != "") {
+        //nome tem informação
+        sobrenomeValidar.innerText = "";
+        sobrenomeValidar.style.border = ``;
+        sobrenomeValido = true;
+    } else {
+        //sobrenome está vazio
+        sobrenomeValidar.innerText = "Campo obrigatório";
+        sobrenomeValidar.style.color = "#E01E1E";
+        sobrenomeValidar.style.fontSize = "8";
+        sobrenomeValidar.style.fontWeight = "bold";
+        sobrenomeValidar.style.border = `1px solid #E01E1E`;
+        sobrenomeValido = false;
+    }
+    validaTelaDeCadastro();
+});
+
+email.addEventListener('blur', function() {
+    let emailValidar = document.getElementById('emailValidacao');
+    if (email.value != "") {
+        //nome tem informação
+        emailValidar.innerText = ""
+        emailValidar.style.border = ``
+        emailCadastroValido = true;
+    } else {
+        //nome está vazio
+        emailValidar.innerText = "Campo obrigatório";
+        emailValidar.style.color = "#E01E1E";
+        emailValidar.style.fontSize = "8";
+        emailValidar.style.fontWeight = "bold";
+        emailValidar.style.border = `1px solid #E01E1E`;
+        emailCadastroValido = false;
+    }
+    validaTelaDeCadastro();
+});
+
+
+function validaTelaDeCadastro() {
+    if (nomeValido && sobrenomeValido && emailCadastroValido && passwordCadastroValido && repetirPasswordValido) {
+        cadastrar.removeAttribute('disabled')
+        cadastrar.innerText = "Cadastrar"
         return true
     } else {
-        botaoSalvar.setAttribute('disabled', true);
-        botaoSalvar.innerText = "Bloqueado";
-        return false;
+        cadastrar.setAttribute('disabled', true);
+        cadastrar.innerText = "Bloqueado"
+        return false
     }
 }
