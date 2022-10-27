@@ -1,0 +1,26 @@
+Aula 1: Conhecendo o React
+Olá Houser, tudo bem com você? O objetivo dessa mesa de trabalho será explorar os sites que conhecemos, e pesquisar quais deles usam React.
+Requisitos:
+Cada grupo deverá pesquisar 5 sites que utilizam React
+Devem apontar as características que o grupo acredita que diferencia os sites que utilizam o React dos demais.
+
+*Dica de ouro - O React foi criado pelo facebook…
+(Instalar o WAPPALYZER para descobrir)
+
+- Instagram
+- Vimeo
+- Marvel
+- Airbnb
+- Discord
+- Coursera
+- Udemy
+- Kabum
+- Dropbox
+- BBC
+- Netflix
+- Paypal
+- Magazine Luiza
+- Casas Bahia
+- Twitter
+- Americanas
+- Twitch
