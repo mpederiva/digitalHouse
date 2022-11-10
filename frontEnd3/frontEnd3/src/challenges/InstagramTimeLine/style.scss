@@ -1,0 +1,111 @@
+.instagram-time-line-component {
+
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 0;
+
+    .main-title {
+        margin-bottom: 24px;
+    }
+
+    .posts {
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .post {
+
+            display: flex;
+            flex-direction: column;
+            background-color: #252525;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: .4s ease-in-out;
+
+            &:hover {
+                transform: scale(1.02);
+                filter: brightness(120%);
+            }
+
+            img {
+                object-fit: cover;
+            }
+
+            header {
+
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+
+                h1 {
+                    font-size: 18px;
+                    opacity: .9;
+                    font-weight: 500;
+                }
+
+                h2 {
+                    font-size: 14px;
+                    opacity: .75;
+                    font-weight: 300;
+                }
+
+            }
+
+            main {
+
+                img {
+                    width: 100%;
+                    height: 600px;
+                }
+
+                .post-infos {
+                    padding: 12px;
+
+                    .likeds {
+                        opacity: .75;
+                        font-weight: 300;
+                        font-size: 16px;
+                    }
+
+                    .description {
+                        margin-top: 12px;
+                        font-size: 16px;
+                    }
+
+                }
+
+                .comments {
+                    padding: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    li {
+
+                        display: flex;
+                        gap: 12px;
+
+                        h1 {
+                            font-size: 16px;
+                            opacity: .9;
+                        }
+
+                        p {
+                            opacity: .75;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
